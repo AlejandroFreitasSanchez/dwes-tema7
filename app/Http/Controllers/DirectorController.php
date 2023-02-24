@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Corto;
+use App\Models\Director;
 use Illuminate\Http\Request;
 
-class CortoController extends Controller
+class DirectorController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        $cortos = Corto::with('director')->orderBy('created_at')->get();
-        return view('cortos.index', compact('cortos'));
+        $directores = Director::with('cortos')->orderBy('created_at')->get();
+        return view('directores.index', compact('directores'));
     }
 
     /**
@@ -25,7 +23,6 @@ class CortoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
         //
@@ -37,7 +34,6 @@ class CortoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
     public function store(Request $request)
     {
         //
@@ -46,24 +42,21 @@ class CortoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Corto  $corto
+     * @param  \App\Models\Director  $director
      * @return \Illuminate\Http\Response
      */
-
-    public function show(Int $id)
+    public function show(Director $director)
     {
-        $corto = Corto::with('director')->with('usuario')->findOrFail($id);
-        return view('cortos.show', compact('corto'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Corto  $corto
+     * @param  \App\Models\Director  $director
      * @return \Illuminate\Http\Response
      */
-
-    public function edit(Corto $corto)
+    public function edit(Director $director)
     {
         //
     }
@@ -72,11 +65,10 @@ class CortoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Corto  $corto
+     * @param  \App\Models\Director  $director
      * @return \Illuminate\Http\Response
      */
-
-    public function update(Request $request, Corto $corto)
+    public function update(Request $request, Director $director)
     {
         //
     }
@@ -84,11 +76,10 @@ class CortoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Corto  $corto
+     * @param  \App\Models\Director  $director
      * @return \Illuminate\Http\Response
      */
-
-    public function destroy(Corto $corto)
+    public function destroy(Director $director)
     {
         //
     }

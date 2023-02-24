@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>@yield('titulo')</title>
+    <title>@yield('festicortos')</title>
     @vite(['resources/sass/app.scss'])
 </head>
 
